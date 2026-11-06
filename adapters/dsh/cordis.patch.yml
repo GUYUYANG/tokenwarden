@@ -1,0 +1,8 @@
+- insert:
+    - id: tokenwarden
+      name: '@tokenwarden/dsh'
+      config:
+        # 一轮最多花多少人民币，超过就停这一轮。¥1.5 ≈ 历史中位数一轮的 3 倍。
+        turnCapCny: 1.5
+        # 请求前去掉历史里的 reasoning 块（DSH 默认每步都把它们原样发回）。
+        stripOldReasoning: true

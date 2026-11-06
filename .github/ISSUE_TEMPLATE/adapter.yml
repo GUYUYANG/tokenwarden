@@ -1,0 +1,31 @@
+name: Host adapter proposal
+description: Propose support for another AI coding host.
+title: "[adapter] "
+labels: ["adapter", "help wanted"]
+body:
+  - type: input
+    id: host
+    attributes:
+      label: Host and version
+    validations:
+      required: true
+  - type: textarea
+    id: signals
+    attributes:
+      label: Available structured signals
+      description: Session ID, model, token usage, tool calls, compaction, prompt-submit and checkpoint events.
+    validations:
+      required: true
+  - type: textarea
+    id: injection
+    attributes:
+      label: Context injection and trust model
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy boundary
+      description: What data would the adapter read, store, or emit?
+    validations:
+      required: true

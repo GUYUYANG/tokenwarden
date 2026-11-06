@@ -1,0 +1,1 @@
+{ "meta": { "title": "Token Guard", "description": "Compacts the conversation once its context passes a token budget, so long sessions stop paying for a huge history on every step." } }

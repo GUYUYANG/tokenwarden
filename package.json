@@ -1,0 +1,33 @@
+{
+  "name": "tokenwarden",
+  "version": "0.1.0",
+  "description": "Context and cost guard for long-running AI coding agents.",
+  "homepage": "https://github.com/GUYUYANG/tokenwarden",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GUYUYANG/tokenwarden.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GUYUYANG/tokenwarden/issues"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "check": "node --check tools/codex-task-memory.mjs && node --check tools/codex-model-switch-guard.mjs && node --check tools/codex-session-audit.mjs && node --check tools/install-codex-task-memory.mjs && node --check tools/install-codex-model-switch-guard.mjs && node --check tools/uninstall-codex-hooks.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "verify": "npm run check && npm test",
+    "audit": "node tools/codex-session-audit.mjs"
+  },
+  "keywords": [
+    "ai-agents",
+    "codex",
+    "context-engineering",
+    "token-optimization",
+    "cost-optimization",
+    "developer-tools"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@tokenwarden/dsh",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "DSH host adapter for TokenWarden context and cost controls.",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
