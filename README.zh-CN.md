@@ -3,7 +3,7 @@
 **给长会话 AI 编程代理的上下文与成本守卫。**  
 保留真正需要的事实，丢掉重复回放的浪费，找出让代理变慢变贵的循环。
 
-![TokenWarden banner](assets/banner.svg)
+![TokenWarden 横幅](assets/banner.svg)
 
 你的代理变慢，不一定是因为模型想得更多。更常见的原因是：每一步都在重新携带已经不再需要的历史。
 

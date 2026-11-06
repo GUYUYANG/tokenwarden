@@ -1,1 +1,1 @@
-{ "meta": { "title": "Token Guard", "description": "Compacts the conversation once its context passes a token budget, so long sessions stop paying for a huge history on every step." } }
+{ "meta": { "title": "Token Guard / 词元卫士", "description": "Compacts the conversation once its context passes a token budget, so long sessions stop paying for a huge history on every step. / 会话上下文超过预算时自动压缩历史，避免长会话每一步都为整段历史付费。" } }

@@ -1,33 +1,33 @@
-name: Bug report
-description: Report a reproducible problem with redacted evidence.
+name: Bug report / 缺陷报告
+description: Report a reproducible problem with redacted evidence. / 提交带有脱敏证据的可复现问题。
 title: "[bug] "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
-      value: "Do not paste a full transcript, credentials, private paths, or customer data."
+      value: "Do not paste a full transcript, credentials, private paths, or customer data. / 请勿粘贴完整会话、凭据、私人路径或客户数据。"
   - type: input
     id: version
     attributes:
-      label: Version or commit
+      label: Version or commit / 版本或提交
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Expected behavior
+      label: Expected behavior / 预期行为
     validations:
       required: true
   - type: textarea
     id: observed
     attributes:
-      label: Observed behavior
+      label: Observed behavior / 实际行为
     validations:
       required: true
   - type: textarea
     id: reproduction
     attributes:
-      label: Minimal reproduction
-      description: Use a synthetic fixture or redacted structured output.
+      label: Minimal reproduction / 最小复现
+      description: Use a synthetic fixture or redacted structured output. / 请使用合成测试数据或脱敏后的结构化输出。
     validations:
       required: true

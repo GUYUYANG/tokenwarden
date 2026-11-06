@@ -1,7 +1,7 @@
 {
   "name": "tokenwarden",
   "version": "0.1.0",
-  "description": "Context and cost guard for long-running AI coding agents.",
+  "description": "Context and cost guard for long-running AI coding agents. 面向长会话 AI 编程代理的上下文与成本守卫。",
   "homepage": "https://github.com/GUYUYANG/tokenwarden",
   "repository": {
     "type": "git",

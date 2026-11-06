@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "DSH host adapter for TokenWarden context and cost controls.",
+  "description": "DSH host adapter for TokenWarden context and cost controls. TokenWarden 的 DSH 宿主适配器，用于上下文与成本控制。",
   "exports": {
     ".": "./index.js",
     "./locale/*.json": "./locale/*.json",

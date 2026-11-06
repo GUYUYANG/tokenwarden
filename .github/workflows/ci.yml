@@ -1,4 +1,4 @@
-name: CI
+name: CI / 持续集成
 
 on:
   push:
@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   test:
+    name: Verify / 验证
     runs-on: ubuntu-latest
     strategy:
       matrix:

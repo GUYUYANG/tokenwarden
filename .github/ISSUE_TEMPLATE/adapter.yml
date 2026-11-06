@@ -1,31 +1,31 @@
-name: Host adapter proposal
-description: Propose support for another AI coding host.
+name: Host adapter proposal / 宿主适配建议
+description: Propose support for another AI coding host. / 提议支持另一种 AI 编程宿主。
 title: "[adapter] "
 labels: ["adapter", "help wanted"]
 body:
   - type: input
     id: host
     attributes:
-      label: Host and version
+      label: Host and version / 宿主与版本
     validations:
       required: true
   - type: textarea
     id: signals
     attributes:
-      label: Available structured signals
-      description: Session ID, model, token usage, tool calls, compaction, prompt-submit and checkpoint events.
+      label: Available structured signals / 可用的结构化信号
+      description: Session ID, model, token usage, tool calls, compaction, prompt-submit and checkpoint events. / 会话 ID、模型、token 用量、工具调用、上下文压缩、提示词提交和检查点事件。
     validations:
       required: true
   - type: textarea
     id: injection
     attributes:
-      label: Context injection and trust model
+      label: Context injection and trust model / 上下文注入与信任模型
     validations:
       required: true
   - type: textarea
     id: privacy
     attributes:
-      label: Privacy boundary
-      description: What data would the adapter read, store, or emit?
+      label: Privacy boundary / 隐私边界
+      description: What data would the adapter read, store, or emit? / 适配器会读取、保存或输出哪些数据？
     validations:
       required: true
