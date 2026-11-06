@@ -15,6 +15,60 @@ Keep durable task facts. Drop replay waste. Find the loops that make agents expe
 > Your agent is not necessarily slow because the model thinks too much. It may be slow because every step carries a history nobody still needs.
 > 代理变慢，不一定是因为模型想得太多；也可能是每一步都在重新携带已经不再需要的历史。
 
+## See the failure in 15 seconds / 15 秒看见问题
+
+![TokenWarden synthetic terminal demo | 词元卫士合成终端演示](assets/demo-terminal.svg)
+
+No personal session, no Hook installation, and no telemetry. The command generates a temporary synthetic transcript and runs the real audit code against it.
+不需要个人会话、不安装 Hook、不发送遥测。命令会生成临时合成会话，并用真实审计代码分析它。
+
+```bash
+npx --yes github:GUYUYANG/tokenwarden demo
+```
+
+The actual report includes / 实际报告包含：
+
+```text
+[HIGH] simple-query-overhead
+初始请求仅 42 字符；首次真实修改工具前已产生 50 次模型调用和 100 个命令事件。
+
+[WARN] repeated-tool-calls
+发现 49 次完全相同的重复工具调用。
+```
+
+The model did not get “dumber.” The session hid the evidence and repeated the work.
+模型没有突然“变笨”；是长会话藏起了证据，又把同一份工作重复了一遍。
+
+## Audit your own session / 审计自己的会话
+
+Run the read-only audit first. It prints structured telemetry, not prompts, assistant text, reasoning, tool arguments, or raw tool output.
+先运行只读审计。它只输出结构化遥测，不输出提示词、助手正文、推理、工具参数或原始工具输出。
+
+```bash
+SESSION_ID=your-session-id
+npx --yes github:GUYUYANG/tokenwarden audit "$SESSION_ID" --threshold 200000
+```
+
+Install the Codex Hooks only after the audit is useful to you:
+只有审计结果对你有用后，再安装 Codex Hooks：
+
+```bash
+npm install --global github:GUYUYANG/tokenwarden
+tokenwarden install
+```
+
+Open `/hooks` in Codex, review the exact commands, and trust them. Remove only TokenWarden hooks with `tokenwarden uninstall`.
+在 Codex 中打开 `/hooks`，审核实际命令后选择信任。运行 `tokenwarden uninstall` 只会移除 TokenWarden 的 Hooks。
+
+Prefer source? / 想直接看源码：
+
+```bash
+git clone https://github.com/GUYUYANG/tokenwarden.git
+cd tokenwarden
+npm run demo
+npm test
+```
+
 AI coding sessions are not billed and delayed by the final answer alone. They are shaped by:
 AI 编程会话的费用和延迟不只由最后一段回答决定，而主要受到以下关系影响：
 
@@ -65,36 +119,13 @@ When a summary loses that hierarchy, an old assumption can return as if it were 
 The audit and ledger are host-neutral in design. Codex and DSH are the first adapters, not a claim that every agent runtime exposes the same events.
 审计器和任务账本在设计上保持宿主中立。Codex 与 DSH 只是首批适配器，并不代表每个代理运行时都会暴露相同事件。
 
-## 60-second quick start / 60 秒开始
-
-```bash
-git clone https://github.com/GUYUYANG/tokenwarden.git
-cd tokenwarden
-npm test
-node tools/codex-session-audit.mjs <session-id> --threshold 200000
-```
-
-The audit is read-only and prints structured telemetry rather than prompting you to paste an entire conversation.
-审计器只读运行，输出结构化遥测，不会要求你粘贴一整段对话。
-
-Typical findings look like this:
-典型审计发现如下：
-
-```text
-context-replay          许多调用超过配置的上下文阈值 / many calls exceed the configured context threshold
-repeated-tool-calls     相同工具调用反复进入上下文 / identical tool calls re-enter the context
-simple-query-overhead   简单查询被扩展成长调查循环 / a short lookup expands into a long investigation loop
-frequent-compaction     上下文反复摘要与重建 / repeated summarization and context reconstruction
-```
-
 ## Install the Codex hooks / 安装 Codex Hooks
 
 Requirements: Node.js 22.15 or newer. Review the scripts before running them.
 要求：Node.js 22.15 或更新版本。运行脚本前请先审核代码。
 
 ```bash
-node tools/install-codex-task-memory.mjs
-node tools/install-codex-model-switch-guard.mjs
+tokenwarden install
 ```
 
 Both installers are idempotent and merge into `~/.codex/hooks.json` instead of replacing unrelated hooks. Existing files are backed up before a successful write.
@@ -107,7 +138,7 @@ To remove only TokenWarden hooks:
 只移除 TokenWarden 添加的 Hooks：
 
 ```bash
-node tools/uninstall-codex-hooks.mjs
+tokenwarden uninstall
 ```
 
 See [Deployment / 部署](docs/DEPLOYMENT.md) for environment variables, rollback, and the DSH adapter.

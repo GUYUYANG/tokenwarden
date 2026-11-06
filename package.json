@@ -1,6 +1,6 @@
 {
   "name": "tokenwarden",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Context and cost guard for long-running AI coding agents. 面向长会话 AI 编程代理的上下文与成本守卫。",
   "homepage": "https://github.com/GUYUYANG/tokenwarden",
   "repository": {
@@ -11,15 +11,32 @@
     "url": "https://github.com/GUYUYANG/tokenwarden/issues"
   },
   "type": "module",
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">=22.15.0"
   },
+  "bin": {
+    "tokenwarden": "tools/tokenwarden.mjs"
+  },
+  "files": [
+    "adapters/",
+    "assets/",
+    "docs/",
+    "tools/",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "README.zh-CN.md",
+    "SECURITY.md"
+  ],
   "scripts": {
-    "check": "node --check tools/codex-task-memory.mjs && node --check tools/codex-model-switch-guard.mjs && node --check tools/codex-session-audit.mjs && node --check tools/install-codex-task-memory.mjs && node --check tools/install-codex-model-switch-guard.mjs && node --check tools/uninstall-codex-hooks.mjs",
+    "check": "node --check tools/tokenwarden.mjs && node --check tools/codex-task-memory.mjs && node --check tools/codex-model-switch-guard.mjs && node --check tools/codex-session-audit.mjs && node --check tools/install-codex-task-memory.mjs && node --check tools/install-codex-model-switch-guard.mjs && node --check tools/uninstall-codex-hooks.mjs",
     "test": "node --test tests/*.test.mjs",
     "verify": "npm run check && npm test",
-    "audit": "node tools/codex-session-audit.mjs"
+    "audit": "node tools/codex-session-audit.mjs",
+    "demo": "node tools/tokenwarden.mjs demo",
+    "prepublishOnly": "npm run verify"
   },
   "keywords": [
     "ai-agents",

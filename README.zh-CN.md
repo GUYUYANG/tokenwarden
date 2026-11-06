@@ -7,6 +7,55 @@
 
 你的代理变慢，不一定是因为模型想得更多。更常见的原因是：每一步都在重新携带已经不再需要的历史。
 
+## 15 秒看见问题
+
+![词元卫士合成终端演示](assets/demo-terminal.svg)
+
+不需要个人会话、不安装 Hook、不发送遥测。命令会生成临时合成会话，并用真实审计代码分析它。
+
+```bash
+npx --yes github:GUYUYANG/tokenwarden demo
+```
+
+预期信号：
+
+```text
+[HIGH] simple-query-overhead
+初始请求仅 42 字符；首次真实修改工具前已产生 50 次模型调用和 100 个命令事件。
+
+[WARN] repeated-tool-calls
+发现 49 次完全相同的重复工具调用。
+```
+
+模型没有突然“变笨”；是长会话藏起了证据，又把同一份工作重复了一遍。
+
+## 审计自己的会话
+
+先运行只读审计。它只输出结构化遥测，不输出提示词、助手正文、推理、工具参数或原始工具输出。
+
+```bash
+SESSION_ID=你的会话ID
+npx --yes github:GUYUYANG/tokenwarden audit "$SESSION_ID" --threshold 200000
+```
+
+确认审计结果有用后，再安装 Codex Hooks：
+
+```bash
+npm install --global github:GUYUYANG/tokenwarden
+tokenwarden install
+```
+
+在 Codex 中打开 `/hooks`，审核实际命令后选择信任。运行 `tokenwarden uninstall` 只会移除 TokenWarden 的 Hooks。
+
+想直接看源码：
+
+```bash
+git clone https://github.com/GUYUYANG/tokenwarden.git
+cd tokenwarden
+npm run demo
+npm test
+```
+
 ## 使用背景
 
 AI 编程会话的开销和延迟，不只取决于最后一段回答，而近似受到三个因素共同影响：
@@ -52,24 +101,12 @@ TokenWarden 用本地、确定性的规则和结构化遥测，把这两类问�
 | Codex Hook 安装 | 合并到本地 Hooks，不覆盖无关配置 | `tools/install-codex-*.mjs` |
 | DSH 适配器 | 复用相同原则到另一类宿主 | `adapters/dsh/` |
 
-## 60 秒开始
+## 安装 Codex Hooks
 
 要求 Node.js 22.15 或更新版本。
 
 ```bash
-git clone https://github.com/GUYUYANG/tokenwarden.git
-cd tokenwarden
-npm test
-
-# 只读审计；不会打印提示词、助手正文、reasoning 或完整工具输出
-node tools/codex-session-audit.mjs <session-id> --threshold 200000
-```
-
-安装 Codex Hooks：
-
-```bash
-node tools/install-codex-task-memory.mjs
-node tools/install-codex-model-switch-guard.mjs
+tokenwarden install
 ```
 
 安装器会先备份现有 `~/.codex/hooks.json`，再合并 Hook；重复运行不会叠加。执行后需要在 Codex 的 `/hooks` 中审核并信任，新会话才会加载变更。
@@ -77,7 +114,7 @@ node tools/install-codex-model-switch-guard.mjs
 只移除 TokenWarden 添加的 Hooks：
 
 ```bash
-node tools/uninstall-codex-hooks.mjs
+tokenwarden uninstall
 ```
 
 完整部署、环境变量和 DSH 适配说明见 [部署文档](docs/DEPLOYMENT.md) 与 [架构说明](docs/ARCHITECTURE.md)。

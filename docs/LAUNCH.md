@@ -29,17 +29,30 @@ Avoid:
 - leading with implementation details before showing the user-visible problem.
   在展示用户可见问题之前先堆实现细节。
 
+## Cold start / 冷启动
+
+Third-party media is optional; external distribution is not. GitHub is the conversion page, not a guaranteed discovery engine for a new repository.
+第三方媒体不是必需品，但外部触达不是可选项。GitHub 是转化页，而不是新仓库的自动流量来源。
+
+Start with 3–5 people who already report long, expensive agent sessions. Ask them to run the synthetic demo first, then a redacted audit in their own environment. Ask about false positives, missed patterns, and installation failures instead of asking for stars.
+先找 3–5 个已经在抱怨长会话昂贵或重复修 bug 的用户。请他们先运行合成演示，再在自己的环境里跑一次脱敏审计。询问误报、漏报和安装失败，而不是只要 star。
+
+Useful early signals are ten successful first runs, three reproducible feedback reports, and one repeat user. Views without successful runs are not evidence that the project is useful.
+有价值的早期信号是十次成功首次运行、三份可复现反馈，以及一个重复使用用户。没有成功运行的浏览量不能证明项目有用。
+
 ## 60-second proof / 60 秒证明
 
-1. Show a redacted audit containing context replay, repeated tool calls, or simple-query overhead.
-   展示包含上下文回放、重复工具调用或简单查询开销的脱敏审计。
-2. Show the calculator: `calls × active context × price`.
+1. Run `npx --yes github:GUYUYANG/tokenwarden demo`.
+   运行 `npx --yes github:GUYUYANG/tokenwarden demo`。
+2. Show the synthetic audit containing context replay, repeated tool calls, and simple-query overhead.
+   展示包含上下文回放、重复工具调用和简单查询开销的合成审计。
+3. Show the calculator: `calls × active context × price`.
    展示计算关系：`调用次数 × 当前上下文 × 单价`。
-3. Show one compact task-ledger injection.
+4. Show one compact task-ledger injection.
    展示一次紧凑任务账本注入。
-4. Show that an unrelated lookup does not receive the ledger.
+5. Show that an unrelated lookup does not receive the ledger.
    展示无关查询不会收到任务账本。
-5. Show the uninstall command.
+6. Show the uninstall command.
    展示卸载命令。
 
 ## Launch sequence / 发布节奏

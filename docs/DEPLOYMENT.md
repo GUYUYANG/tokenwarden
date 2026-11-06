@@ -14,6 +14,24 @@ TokenWarden 没有运行时包依赖，也不需要构建。
 
 ## Install / 安装
 
+The fastest read-only path runs the synthetic demo without cloning or touching local sessions:
+最快的只读路径不需要克隆仓库，也不会触碰本地会话：
+
+```bash
+npx --yes github:GUYUYANG/tokenwarden demo
+```
+
+Install the CLI from the GitHub package, then add the Hooks:
+从 GitHub 安装 CLI，再添加 Hooks：
+
+```bash
+npm install --global github:GUYUYANG/tokenwarden
+tokenwarden install
+```
+
+Source checkout remains supported:
+仍然支持从源码运行：
+
 ```bash
 git clone https://github.com/GUYUYANG/tokenwarden.git
 cd tokenwarden
@@ -53,7 +71,8 @@ After installation, open `/hooks` in Codex and review the exact commands. Trust 
    对小型会话运行只读审计：
 
    ```bash
-   node tools/codex-session-audit.mjs <session-id> --threshold 200000
+   SESSION_ID=your-session-id
+   tokenwarden audit "$SESSION_ID" --threshold 200000
    ```
 
 3. Open a new session, submit a work request, and confirm the Hook appears as trusted.
@@ -89,7 +108,7 @@ If `codex-cost-meter` is unavailable, TokenWarden uses its small built-in price 
 ## Uninstall / 卸载
 
 ```bash
-node tools/uninstall-codex-hooks.mjs
+tokenwarden uninstall
 ```
 
 This removes only commands containing `codex-task-memory.mjs` or `codex-model-switch-guard.mjs`. It preserves unrelated Hooks and creates a backup before writing.

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">TokenWarden terminal demo / 词元卫士终端演示</title>
+  <desc id="desc">A synthetic audit finds a short lookup expanded into 50 model calls, 100 commands, and 49 repeated tool calls.</desc>
+  <rect width="1200" height="700" rx="28" fill="#0b1020"/>
+  <rect x="34" y="34" width="1132" height="632" rx="20" fill="#111827" stroke="#2a3550" stroke-width="2"/>
+  <circle cx="70" cy="72" r="8" fill="#ff5f57"/>
+  <circle cx="98" cy="72" r="8" fill="#febc2e"/>
+  <circle cx="126" cy="72" r="8" fill="#28c840"/>
+  <text x="160" y="79" fill="#8492b2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19">tokenwarden demo</text>
+  <line x1="34" y1="104" x2="1166" y2="104" stroke="#25304a" stroke-width="2"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22">
+    <text x="72" y="154" fill="#8da2ff">$</text>
+    <text x="102" y="154" fill="#e7ecf8">npx --yes github:GUYUYANG/tokenwarden demo</text>
+    <text x="72" y="198" fill="#7c8aa8">Synthetic demo · no personal session data</text>
+    <text x="72" y="228" fill="#7c8aa8">合成演示 · 不读取个人会话数据</text>
+    <text x="72" y="286" fill="#e7ecf8">Context / 上下文</text>
+    <text x="72" y="322" fill="#c6d0e5">234.5k average</text>
+    <text x="455" y="322" fill="#ffbf69">259k peak</text>
+    <text x="455" y="354" fill="#8492b2">50 / 50 samples above 200,000</text>
+    <text x="72" y="414" fill="#e7ecf8">Workflow / 工作流</text>
+    <text x="72" y="450" fill="#c6d0e5">42-char lookup</text>
+    <text x="455" y="450" fill="#ffbf69">50 model calls · 100 commands</text>
+    <text x="72" y="500" fill="#ff7777">[HIGH] simple-query-overhead</text>
+    <text x="72" y="530" fill="#c6d0e5">A lookup became a long investigation.</text>
+    <text x="72" y="560" fill="#c6d0e5">简单查询被执行成了复杂调查流程。</text>
+    <text x="72" y="608" fill="#ffd166">[WARN] repeated-tool-calls · 49 identical calls</text>
+    <text x="72" y="638" fill="#ffd166">相同工具调用反复进入上下文。</text>
+  </g>
+  <text x="1128" y="638" fill="#65718c" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" text-anchor="end">SYNTHETIC DATA</text>
+</svg>

@@ -1,5 +1,16 @@
 # Changelog / 更新日志
 
+## v0.1.1 — First-run proof / 首次运行证明 — 2026-11-06
+
+- Added a zero-dependency `tokenwarden` CLI with `demo`, `audit`, `install`, and `uninstall` commands.
+  增加零依赖 `tokenwarden` CLI，提供演示、审计、安装和卸载命令。
+- Added a temporary synthetic transcript so visitors can see the real audit findings without exposing a personal session.
+  增加临时合成会话，让访客无需暴露个人会话就能看到真实审计结果。
+- Added a terminal visual and moved the reproducible proof above the fold in both READMEs.
+  增加终端演示图，并在双语 README 首屏放置可复现证据。
+- Made the package publishable and installable directly from GitHub.
+  将包改为可发布，并支持直接从 GitHub 安装。
+
 ## v0.1.0 — Public preview / 公开预览 — 2026-11-06
 
 - Relicensed under GPL-3.0-only. / 项目改用 GPL-3.0-only 许可证。
