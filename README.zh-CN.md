@@ -102,4 +102,6 @@ node tools/uninstall-codex-hooks.mjs
 
 ## 许可
 
-MIT
+本项目采用 **GPL-3.0-only** 许可证。你可以依照 GNU GPLv3 条款使用、修改和再分发；分发修改版时，必须遵守 GPL 的源码开放义务。
+
+完整许可证文本见 [LICENSE](LICENSE)。

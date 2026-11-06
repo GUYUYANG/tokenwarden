@@ -6,7 +6,7 @@ Keep durable task facts. Drop replay waste. Find the loops that make agents expe
 保留真正需要的事实，丢掉重复回放的浪费，找出让代理变慢、变贵的循环。
 
 [![CI | 持续集成](https://github.com/GUYUYANG/tokenwarden/actions/workflows/ci.yml/badge.svg)](https://github.com/GUYUYANG/tokenwarden/actions/workflows/ci.yml)
-[![License: MIT | 许可证：MIT](https://img.shields.io/badge/License%20%7C%20%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-2ea44f.svg)](LICENSE)
+[![License: GPL-3.0-only | 许可证：GPL-3.0-only](https://img.shields.io/badge/License%20%7C%20%E8%AE%B8%E5%8F%AF%E8%AF%81-GPL--3.0--only-2ea44f.svg)](LICENSE)
 [![Node.js 22.15+ | 要求](https://img.shields.io/badge/Node.js%2022.15%2B%20%7C%20%E8%A6%81%E6%B1%82-required-339933.svg)](https://nodejs.org/)
 [![No telemetry | 无遥测](https://img.shields.io/badge/No%20telemetry%20%7C%20%E6%97%A0%E9%81%A5%E6%B5%8B-none-5b6ee1.svg)](#privacy-and-safety--隐私与安全)
 
@@ -192,4 +192,8 @@ The complete Chinese-only guide remains available at [README.zh-CN.md / 中文�
 
 ## License / 许可证
 
-MIT
+This project is licensed under **GPL-3.0-only**. You may use, modify, and redistribute it under the GNU GPLv3 terms. If you distribute a modified version, the GPL source-sharing obligations apply.
+本项目采用 **GPL-3.0-only** 许可证。你可以依照 GNU GPLv3 条款使用、修改和再分发。分发修改版时，必须遵守 GPL 的源码开放义务。
+
+See [LICENSE](LICENSE) for the complete license text.
+完整许可证文本见 [LICENSE](LICENSE)。

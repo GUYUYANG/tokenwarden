@@ -2,6 +2,7 @@
 
 ## v0.1.0 — Public preview / 公开预览 — 2026-11-06
 
+- Relicensed under GPL-3.0-only. / 项目改用 GPL-3.0-only 许可证。
 - Public preview of the local-first session audit.
   发布本地优先会话审计的公开预览。
 - Durable task-memory ledger with selective injection after compaction.
